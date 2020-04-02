@@ -1,0 +1,18 @@
+<div class="container-fluid" style="margin: 10px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card" style="width: 18rem;" *ngIf="isLoad">
+          <img [src]="restaurantData.image" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{restaurantData.title}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a (click)="goTorestaurant(restaurantData.id)" class="btn btn-primary">Buy</a>
+          </div>
+        </div>
+      <div *ngIf="!isLoad"> No Data Found</div>
+      </div>  
+     </div>
+  </div>
+</div>

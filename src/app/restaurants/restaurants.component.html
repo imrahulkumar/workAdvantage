@@ -1,0 +1,46 @@
+<div class="container-fluid" style="margin: 10px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4" *ngFor="let item of restaurants; let i = index">
+        <div class="card" style="width: 18rem;">
+          <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#exampleModalCenter">Open Modal</button>
+          <img [src]="item.image" class="card-img-top" alt="image not loaded" (click)="fetchIndex(i)">
+          <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a (click)="goTorestaurant(item)" class="btn btn-primary">Buy</a>
+          </div>
+        </div>
+      </div>  
+     </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">{{restaurants[index].title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card" style="width: 29rem;">          
+          <img [src]="restaurants[index].image" class="card-img-top" alt="image not loaded">
+          <div class="card-body">
+            <h5 class="card-title">{{restaurants[index].title}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>            
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>        
+      </div>
+    </div>
+  </div>
+</div>
